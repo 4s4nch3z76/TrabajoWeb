@@ -1,137 +1,56 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Seleccion condensadores</title>
-  </head>
-  <body>
-    <h1 style="text-align:center"><span style="font-family:Georgia,serif"><span style="font-size:26pt"><span style="color:#000000"><strong>SELECCI&Oacute;N DE CAPACIDADES</strong></span></span></span></h1>
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Seleccion de condensadores</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div>
+        <p>La electrónica es algo presente en nuestro día a día y que nos afecta a todos de manera inconsciente. Millones
+            de aparatos con ello presente en su interior. Un mundo desconocido para la mayor parte de la población.</p>
+        <p>En esta web le hablaremos del mundo de la electrónica, concretamente desde el punto de vista de la compatibilidad
+            electromagnética. Poniendo como ejemplo el circuito de un mando de garaje, explicaremos cómo y en base a que se
+            realiza la selección de capacidades. También analizaremos los tipos de capacidades que hay y su respectiva función.
+            Muchas de las personas ignoran su existencia, pero una vez dentro, si te gusta, resulta apasionante</p>
+    </div>
+    <div>
+        <h1>Condensadores</h1>
+        <p>Existen condensadores de todas las formas y tamaños. Son dispositivos capaces de almacenar energía en forma de campo
+            eléctrico y que se oponen a los cambios bruscos de voltaje liberando su energía almacenada rápidamente. Están formados
+            por dos armaduras metálicas paralelas separadas por un material dieléctrico que evita que la corriente circule
+            directamente entre ellas.</p>
+        <img src="Images/trabajo2compati_1.jpg" alt="TiposCondensadores" height="400">
+        <p>Además según la función que cumplan y siempre que estén conectados entre la fuente de tensión y tierra se pueden clasificar
+            en 3 grupos principales: Bypass, Bulk y Decouple.</p>
+        <img src="Images/trabajo2compati_1.jpg" alt="EsquemaCondensadores" height="400">
+        <h2>Condensadores Bypass</h2>
+        <p>Estos condensadores se encargan de filtrar el posible ruido producido por la fuente de alimentación y por esto serán
+            los más cercanos a esta.</p>
+        <h2>Condensadores Bulk</h2>
+        <p>Estos se colocan después de los condensadores de bypass, proporcionando los armónicos más bajos de los picos de corriente
+            para suministrar un voltaje y corriente estables a los componentes. Su voltaje nominal debería ser el doble que el voltaje
+            máximo esperado en el circuito y su capacidad suele estar típicamente entre los 10 y 100 µF.</p>
+        <h2>Condensadores Decouple</h2>
+        <p>Son los condensadores más cercanos a los componentes y se encargan de estabilizar el voltaje proporcionando los armónicos
+            más altos de los picos de corriente.</p>
+    </div>
+    <div>
+        <h1>Ejemplo</h1>
+        <img src="Images/trabajo2compati_1.jpg" alt="EsquemaCondensadores" height="400">
+        <p>Lo primero que deberemos hacer es situar la fuente de alimentación y los diversos componentes/circuitos integrados del
+            circuito, que en este caso son:</p>
+        <ul>
+          <li>Microcontrolador <span style="color:#999999"><em>PIC18LF252-1/SO</em></span></li>
+          <li>Transceptor a 868MHz <span style="color:#999999"><em>nRF903</em></span></li>
+          <li>Protección contra ESD <span style="color:#999999"><em>ESDA5V3SC6</em></span></li>
+          <li>Regulador de 5V a 3V  <span style="color:#999999"><em>MC78LC33NTR</em></span></li>
+          <li>Balun para 900Hz 1:4 <span style="color:#999999"><em>LDB31900M20C-416</em></span></li>
+        </ul>
+    </div>
 
-<p style="text-align:justify"><span style="font-family:Georgia,serif"><span style="font-size:20px"><span style="color:#000000">A continuaci&oacute;n se se explicar&aacute; c&oacute;mo seleccionar los valores de las capacidades para un circuito. En este caso se trabajar&aacute; con el circuito de un mando a distancia para la puerta de un garaje.</span></span></span></p>
-
-<p style="text-align:justify">&nbsp;</p>
-
-<h2 style="text-align:center"><span style="font-family:Georgia,serif"><u><strong><span style="font-size:20pt"><span style="color:#000000">Esquem&aacute;tico</span></span></strong></u></span></h2>
-
-<p>&nbsp;</p>
-
-<h2 style="text-align:center"><span style="font-family:Georgia,serif"><span style="font-size:13.999999999999998pt"><span style="color:#000000"><img alt="esquematico.jpg" class="left" src="https://lh3.googleusercontent.com/4tEjVGY7er1EZkLX_5s9l8dFdl8KnFIeQ2Is1fjA065xEh5cBOtyd7Bu4dWmx1gCRx4tzQ_fjkBkObP5Yepad-GX3E3U1KSiPE8me8JGZkhkq8Ii02RWsYWKr4v3puI_AgzadPG6_xQ07595kmyi6H0UfyKt2h4l-bIoivaeFVyu6_FGCieDTMCrvg" style="height:448px; width:602px" /></span></span></span></h2>
-
-<p>&nbsp;</p>
-
-<p>&nbsp;</p>
-
-<h1><span style="font-family:Georgia,serif">Los componentes principales de este circuito son:</span></h1>
-
-<ul>
-	<li><span style="font-family:Georgia,serif"><span style="font-size:18px">Microcontrolador&nbsp;</span><span style="color:#999999"><span style="font-size:16px"><em>PIC18LF252-1/SO</em></span></span></span></li>
-	<li><span style="font-family:Georgia,serif"><span style="font-size:18px">Transceptor a </span><span style="font-size:16px"><em>868MHz&nbsp;</em></span><span style="color:#999999"><span style="font-size:16px"><em>nRF903</em></span></span></span></li>
-	<li><span style="font-family:Georgia,serif"><span style="font-size:18px">Protecci&oacute;n contra ESD&nbsp;</span><span style="color:#999999"><span style="font-size:16px"><em>ESDA5V3SC6</em></span></span></span></li>
-	<li><span style="font-family:Georgia,serif"><span style="font-size:18px">Regulador de 5V a 3V&nbsp;&nbsp;</span><span style="color:#999999"><span style="font-size:16px"><em>MC78LC33NTR</em></span></span></span></li>
-	<li><span style="font-family:Georgia,serif"><span style="font-size:18px">Balun para 900Hz 1:4&nbsp;</span><span style="color:#999999"><span style="font-size:16px"><em>LDB31900M20C-416</em></span></span></span></li>
-</ul>
-
-<p>&nbsp;</p>
-
-<p>&nbsp;</p>
-
-<p>&nbsp;</p>
-
-<p>&nbsp;</p>
-
-<p>&nbsp;</p>
-
-<h2 style="text-align:center">&nbsp;</h2>
-
-<hr />
-<h2 style="text-align:center"><span style="font-size:28px"><strong>CLASIFICACI&Oacute;N DE CONDENSADORES</strong></span></h2>
-
-<p><span style="font-size:20px">Para que un circuito funcione de manera correcta, en ocasiones hay que a&ntilde;adir diversos componentes como condensadores. Seg&uacute;n la funci&oacute;n que desempe&ntilde;en podemos clasificarlos mayoritariamente en 3 grupos: Bypass, Bulk y Decouple.</span></p>
-
-<p>&nbsp;</p>
-
-<h3 style="text-align:justify"><span style="font-size:24px"><strong><span style="font-family:Oswald,sans-serif"><span style="color:#000000">CONDENSADORES DE BYPASS</span></span></strong></span></h3>
-
-<p style="text-align:justify"><span style="font-size:13.999999999999998pt"><span style="font-family:Oswald,sans-serif"><span style="color:#000000">Estos condensadores se encargan de filtrar el posible ruido producido por la fuente de alimentaci&oacute;n y por esto ser&aacute;n los m&aacute;s cercanos a esta.&nbsp;</span></span></span></p>
-
-<p>&nbsp;</p>
-
-<p style="text-align:center"><span style="font-size:13.999999999999998pt"><span style="font-family:Oswald,sans-serif"><span style="color:#000000"><img src="https://lh3.googleusercontent.com/wY6WcpMA-15PlKUKV4ChmSSOAl2hMc3CfONSnVU6wAtD4fWKBT32atSpk3qKcpO5OUbDXrxVcCShwrV5RgwamINiXFvLk4M9_gFj5sr1GPSWrxv8mbjIjUKa8fc5vw-4tjl98AbxYyotK-wmSEajh2Fvt0O622pf85PYQj3vJabGR778uNI6Y_7GTw" style="height:277px; width:374px" /></span></span></span></p>
-
-<p>&nbsp;</p>
-
-<h2 style="text-align:justify"><span style="font-size:24px"><strong><span style="font-family:Oswald,sans-serif"><span style="color:#000000">CONDENSADORES BULK</span></span></strong></span></h2>
-
-<p style="text-align:justify"><span style="font-size:13.999999999999998pt"><span style="font-family:Oswald,sans-serif"><span style="color:#000000">Estos se colocan despu&eacute;s de los condensadores de bypass, proporcionando los arm&oacute;nicos m&aacute;s bajos de los picos de corriente para suministrar un voltaje y corriente estables a los componentes. Su voltaje nominal deber&iacute;a ser el doble que el voltaje m&aacute;ximo esperado en el circuito y su capacidad suele estar t&iacute;picamente entre los 10 y 100 &micro;F.</span></span></span></p>
-
-<p><br />
-&nbsp;</p>
-
-<h2 style="text-align:justify">&nbsp;</h2>
-
-<h2 style="text-align:justify"><span style="font-size:24px"><strong><span style="font-family:Oswald,sans-serif"><span style="color:#000000">CONDENSADORES DECOUPLING</span></span></strong></span></h2>
-
-<p style="text-align:justify"><span style="font-size:13.999999999999998pt"><span style="font-family:Oswald,sans-serif"><span style="color:#000000">Son los condensadores m&aacute;s cercanos a los componentes y se encargan de estabilizar el voltaje proporcionando los arm&oacute;nicos m&aacute;s altos de los picos de corriente.</span></span></span></p>
-
-<p>&nbsp;</p>
-
-<p style="text-align:center"><span style="font-size:13.999999999999998pt"><span style="font-family:Oswald,sans-serif"><span style="color:#000000"><img src="https://lh3.googleusercontent.com/_jiqQVZSuVIz0qoJ41tHiXMs4BauxXX5Q2n4ZiavcsaURP8tEm61VfetFFwA7xkufiz9iDlq2Yefm0iySNivF9P6y2W6Td8OPTQELW_EHiQhTk6srRegTRB47bKhbYPeqOuOsvYxx5d3U8IrermrgjFBNfxFEdzdMLnpma5m6mRTEkhoRdWws_c_sQ" style="height:301.3766174316406; width:404px" /></span></span></span></p>
-
-<h4 style="text-align:justify"><em><strong><span style="font-size:13.999999999999998pt"><span style="font-family:Oswald,sans-serif"><span style="color:#434343">C17, C18, C19, C20, C21, C22 y C23</span></span></span></strong></em></h4>
-
-<p style="text-align:justify"><span style="font-size:13.999999999999998pt"><span style="font-family:Oswald,sans-serif"><span style="color:#000000">En este caso, el fabricante en el datasheet recomienda unos valores para las condensadores decoupling del transceptor para trabajar a 868 MHz, por lo que usaremos los valores de las capacidades proporcionados por este:</span></span></span></p>
-
-<p style="text-align:justify">&nbsp;</p>
-
-<p style="text-align:justify"><img class="left" src="https://lh3.googleusercontent.com/sqkuXTDy_agD-1pqTGvtKEf2_GqCDqB2ORVoBeHQsfczpAc3nAIYlU5IjoxwK3AAnVr8aRwLKFWlhIOgYBPOkq699CJmDOKpHtkO2ZLGThwBtbH7NtyV1opWUg8zuyFbAgX1rCFtngBoVvOorzogEGkB2Mo9VzULh421WGT1yD21tn1B4ulC0-23Rg" style="height:338.3171498890715; margin-top:-56px; width:284px" /></p>
-
-<table align="center" border="1" cellpadding="1" cellspacing="1" style="width:500px">
-	<thead>
-		<tr>
-			<th scope="col">#</th>
-			<th scope="col">CAPACIDAD</th>
-			<th scope="col">TIPO</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td style="text-align:center">C17</td>
-			<td style="text-align:center">33 pF</td>
-			<td style="text-align:center">cer&aacute;mico</td>
-		</tr>
-		<tr>
-			<td style="text-align:center">C18</td>
-			<td style="text-align:center">4.7 uF</td>
-			<td style="text-align:center">t&aacute;ntalo</td>
-		</tr>
-		<tr>
-			<td style="text-align:center">C19</td>
-			<td style="text-align:center">4.7 nF</td>
-			<td style="text-align:center">cer&aacute;mico</td>
-		</tr>
-		<tr>
-			<td style="text-align:center">C20</td>
-			<td style="text-align:center">33 pF</td>
-			<td style="text-align:center">cer&aacute;mico</td>
-		</tr>
-		<tr>
-			<td style="text-align:center">C21</td>
-			<td style="text-align:center">4.7 nF</td>
-			<td style="text-align:center">cer&aacute;mico</td>
-		</tr>
-		<tr>
-			<td style="text-align:center">C22</td>
-			<td style="text-align:center">33 pF</td>
-			<td style="text-align:center">cer&aacute;mico</td>
-		</tr>
-		<tr>
-			<td style="text-align:center">C23</td>
-			<td style="text-align:center">4.7 nF</td>
-			<td style="text-align:center">cer&aacute;mico</td>
-		</tr>
-	</tbody>
-</table>
-
-<p style="text-align:justify"><br />
-&nbsp;</p>
-  </body>
+</body>
 </html>
