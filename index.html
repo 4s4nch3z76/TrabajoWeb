@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Seleccion de condensadores</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
     <div>
@@ -23,10 +24,10 @@
             eléctrico y que se oponen a los cambios bruscos de voltaje liberando su energía almacenada rápidamente. Están formados
             por dos armaduras metálicas paralelas separadas por un material dieléctrico que evita que la corriente circule
             directamente entre ellas.</p>
-        <img src="/Images/trabajo2compati_1.jpg" alt="TiposCondensadores" height="400">
+        <img src="" alt="TiposCondensadores" height="400">
         <p>Además según la función que cumplan y siempre que estén conectados entre la fuente de tensión y tierra se pueden clasificar
             en 3 grupos principales: Bypass, Bulk y Decouple.</p>
-        <img src="Images/trabajo2compati_1.jpg" alt="EsquemaCondensadores" height="400">
+        <img src="" alt="EsquemaCondensadores" height="400">
         <h2>Condensadores Bypass</h2>
         <p>Estos condensadores se encargan de filtrar el posible ruido producido por la fuente de alimentación y por esto serán
             los más cercanos a esta.</p>
@@ -40,7 +41,7 @@
     </div>
     <div>
         <h1>Ejemplo</h1>
-        <img src="Images/trabajo2compati_1.jpg" alt="EsquemaCondensadores" height="400">
+        <img src="Images/trabajo2compati_1.jpg" alt="EsquematicoMando" height="400">
         <p>Lo primero que deberemos hacer es situar la fuente de alimentación y los diversos componentes/circuitos integrados del
             circuito, que en este caso son:</p>
         <ul>
@@ -50,6 +51,86 @@
           <li>Regulador de 5V a 3V  <span style="color:#999999"><em>MC78LC33NTR</em></span></li>
           <li>Balun para 900Hz 1:4 <span style="color:#999999"><em>LDB31900M20C-416</em></span></li>
         </ul>
+    </div>
+    <div>
+        <h2>Condensadores Bypass</h2>
+        <img src="Images/trabajo2compatiBYPASS.png" alt="Bypass" height="400">
+        <p>Como hemos mencionado antes, estos estaran pegados a la fuente de alimentación (parte inferior del esquemático). En este caso
+            tendremos los condensadores <b>C3, C4, C11, C12, C13, C25 y C26</b>.</p>
+        <p>En el caso de <b>C3 y C4</b>, si leemos el datasheet del regulador de voltaje, podremos ver que el fabricante recomienda
+            colocar dos condensadores con un valor mínimo de 0.1 µF entre las entradas y salidas y tierra.</p>
+        <img src="" alt="ConfiguracionRegulador" height="400">
+        <p>Sin embargo, para dar valores a C11, C12, C13, C25 y C26 no podremos acudir a ningun datasheet y tendremos que calcularlos
+            nosotros mismos. <b>Aqui ya no se como seguir</b></p>
+    </div>
+    <div>
+        <h2>Condensadores Bulk</h2>
+        <img src="Images/trabajo2compatiBULK.png" alt="Bulk" height="400">
+        <p>En este circuito de ejemplo, tenemos una unica capacidad de este tipo (<b>C24</b>). Al igual que ocurría en el anterior caso,
+            deberemos calcular el valor de su capacitancia. <b>Aqui ya no se como seguir</b></p>
+    </div>
+    <div>
+        <h2>Condensadores Decouple</h2>
+        <img src="Images/trabajo2compatiDECOUPLING.png" alt="Decouple" height="400">
+        <p>Como podemos ver estos son los mas comunes en el circuito y se encuentran por lo general agrupados al rededor de los distintos
+            circuitos integrados. Como su uso suele ser necesario para el correcto funcionamiento de estos componentes, por lo general
+            sus capacitancias vienen dadas en los datasheets de estos.</p>
+        <p>Trabajando con el <span style="text-decoration: underline wavy">transceptor</span> tenemos a los condensadores
+            <b>C17, C18, C19, C20, C21, C22 y C23</b>. Accediendo a su datasheet y viendo
+            la configuración recomendada para funcionar a 868 MHz, obtenemos los siguientes valores:</p>
+        <img src="" alt="TransceiverConfiguration" height="400">
+        <table class="w3-table-all">
+          <thead>
+              <tr class="w3-light-grey">
+                <th>#</th>
+                <th>CAPACIDAD</th>
+                <th>TIPO</th>
+              </tr>
+          </thead>
+          <tr>
+            <td>C17</td>
+            <td>33pF</td>
+            <td>Cerámico</td>
+          </tr>
+          <tr>
+            <td>C18</td>
+            <td>4.7uF</td>
+            <td>Tántalo</td>
+          </tr>
+          <tr>
+            <td>C19</td>
+            <td>4.7nF</td>
+            <td>Cerámico</td>
+          </tr>
+          <tr>
+            <td>C20</td>
+            <td>33pF</td>
+            <td>Cerámico</td>
+          </tr>
+          <tr>
+            <td>C21</td>
+            <td>4.7nF</td>
+            <td>Cerámico</td>
+          </tr>
+          <tr>
+            <td>C22</td>
+            <td>33pF</td>
+            <td>Cerámico</td>
+          </tr>
+          <tr>
+            <td>C23</td>
+            <td>4.7nF</td>
+            <td>Cerámico</td>
+          </tr>
+        </table>
+        <p>Junto al microcontrolador, tenemos los condensadores de decouple C6 y C7 que estabilizan su alimentación. En el datasheet
+            no especifican los valores que debemos darles, por lo que a partir de ΔI (transition current), ΔV (DC noise margin) y Δt,
+            que si que podremos obtener o estimar con el datasheet, deberemos calcular la capacitancia mínima de los condensadores
+            dada por la expresión: Cmin=ΔI/(ΔV/Δt) . Lo que en este caso nos da una capacitancia mínima de lo que de para unos valores
+            de lo que sea para ΔI, ΔV y Δt respectivamente.</p>
+        <p>Finalmente, tendremos que repetir este mismo proceso para hayar los valores de los condensadores de decouple pertenecientes
+            al balun. Obteniendo un valor mínimo para estos de lo que de.
+</p>
     </div>
 
 </body>
